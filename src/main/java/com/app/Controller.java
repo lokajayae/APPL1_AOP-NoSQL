@@ -7,7 +7,6 @@ package com.app;
 
 import com.model.Employee;
 import com.service.EmployeeService;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,7 +46,6 @@ public class Controller {
                 
                 Employee employee = new Employee(name, department, position);
                 employeeService.create(employee);
-                System.out.println("Data Added...\n");
             break;
             
             case 2:
@@ -69,7 +67,6 @@ public class Controller {
                     }
                     else{
                         employeeService.delete(employees.get(choice));
-                        System.out.print("Data deleted...\n");
                     }
                 }
             break;
@@ -179,7 +176,6 @@ public class Controller {
             
             case 6 :
                 employeeService.deleteAll();
-                System.out.println("All data deleted...\n");
             break;
             
             default :

@@ -5,6 +5,7 @@
  */
 package com.model;
 
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author Evan Lokajaya
  */
 
+@EnableAspectJAutoProxy
 @Document(collection = "employee")
 public class Employee {
     @Id
