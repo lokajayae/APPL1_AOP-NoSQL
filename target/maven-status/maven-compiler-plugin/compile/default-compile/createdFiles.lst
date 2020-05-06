@@ -1,3 +1,4 @@
+com\aspect\EmployeeServiceAspect.class
 com\app\Controller.class
 com\model\Employee.class
 com\repository\EmployeeRepository.class
