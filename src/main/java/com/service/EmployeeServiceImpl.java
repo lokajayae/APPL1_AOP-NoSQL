@@ -43,7 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public Employee findByName(String name) {
+    public List<Employee> findByName(String name) {
         return employeeRepository.findByName(name);
     }
 

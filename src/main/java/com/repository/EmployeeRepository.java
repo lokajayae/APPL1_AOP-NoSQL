@@ -19,8 +19,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmployeeRepository extends MongoRepository<Employee, String>{
-    @Query("{ 'name' : ?0}")
-    Employee findByName(String name);
+    @Query(value = "{ 'name' : ?0}")
+    List<Employee> findByName(String name);
     
     @Query(value = "{ 'department' : ?0}")
     List<Employee> findByDepartment(String department);

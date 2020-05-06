@@ -63,4 +63,20 @@ public class Employee {
         str.append("Id : " + getId() + ", Name : " + getName() + ", Department : " + getDepartment() + ", Position : " + getPosition());
         return str.toString();
     }
+    
+    @Override
+    public boolean equals(Object o){
+        if(o == this){
+            return true;
+        }
+        
+        if (!(o instanceof Employee)) { 
+            return false; 
+        }
+        
+        Employee e = (Employee) o;
+        return name.equals(e.getName()) &&
+                department.equals(e.getDepartment()) &&
+                position.equals(e.getPosition());
+    }
 }
