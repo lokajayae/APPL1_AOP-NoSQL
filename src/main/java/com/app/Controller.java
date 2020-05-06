@@ -7,6 +7,7 @@ package com.app;
 
 import com.model.Employee;
 import com.service.EmployeeService;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,7 +27,7 @@ public class Controller {
     }
     
     public void Execute(int input){
-        List<Employee> employees;
+        List<Employee> employees, listName, listPosition, listDepartment;
         int i, choice;
         String name, department, position;
         switch(input){
@@ -57,11 +58,7 @@ public class Controller {
                     System.out.println("Database is empty...\n");
                 }
                 else{
-                    for(Employee e : employees){
-                        System.out.print(i);
-                        System.out.println(" : " + e);
-                        i += 1;
-                    }
+                    printList(employees);
                     
                     System.out.print("Row that want to be deleted : ");
                     choice = scan.nextInt();
@@ -72,6 +69,7 @@ public class Controller {
                     }
                     else{
                         employeeService.delete(employees.get(choice));
+                        System.out.print("Data deleted...\n");
                     }
                 }
             break;
@@ -84,11 +82,7 @@ public class Controller {
                     System.out.println("Database is empty...\n");
                 }
                 else{
-                    for(Employee e : employees){
-                        System.out.print(i);
-                        System.out.println(" : " + e);
-                        i += 1;
-                    }
+                    printList(employees);
                     
                     System.out.print("Row that want to be updated : ");
                     choice = scan.nextInt();
@@ -126,7 +120,48 @@ public class Controller {
             break;
             
             case 4 :
-                //do something
+                System.out.println("Leave the value empty if the corresponding field doesnt matter..");
+                        
+                System.out.print("Name : ");
+                name = scan.nextLine();
+                
+                System.out.print("Department : ");
+                department = scan.nextLine();
+
+                System.out.print("Position : ");
+                position = scan.nextLine();
+                
+                if(name.equals("")){
+                    listName = employeeService.findAll();
+                }
+                else{
+                    listName = employeeService.findByName(name);
+                }
+                        
+                if(department.equals("")){
+                    listDepartment = employeeService.findAll();
+                }
+                else{
+                    listDepartment = employeeService.findByDepartment(department);
+                }
+                
+                if(position.equals("")){
+                    listPosition = employeeService.findAll();
+                }
+                else{
+                    listPosition = employeeService.findByPosition(position);
+                }
+                
+                i = 1;
+                System.out.println("Result : ");
+                for(Employee e : listName){
+                    if(listDepartment.contains(e) && listPosition.contains(e)){
+                        System.out.print(i);
+                        System.out.println(" : " + e);
+                        i += 1;
+                    }
+                }
+                
             break;
             
             case 5 :
@@ -137,11 +172,7 @@ public class Controller {
                     System.out.println("Database is empty...\n");
                 }
                 else{
-                    for(Employee e : employees){
-                        System.out.print(i);
-                        System.out.println(" : " + e);
-                        i += 1;
-                    }
+                    printList(employees);
                 }
                 System.out.println("");
             break;
@@ -159,4 +190,15 @@ public class Controller {
     public boolean getStatus(){
         return this.status;
     }
+    
+    private void printList(List<Employee> list){
+        int i = 1;
+        
+        for(Employee e : list){
+            System.out.print(i);
+            System.out.println(" : " + e);
+            i += 1;
+        }
+    }
+    
 }

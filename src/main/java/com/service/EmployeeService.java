@@ -21,7 +21,7 @@ public interface EmployeeService {
     
     public void deleteAll();
     
-    public Employee findByName(String name);
+    public List<Employee> findByName(String name);
     
     public List<Employee> findByDepartment(String dept);
     

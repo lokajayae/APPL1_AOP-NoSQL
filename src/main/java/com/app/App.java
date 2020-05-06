@@ -31,6 +31,9 @@ public class App {
         Employee jake = new Employee("Jake", "IT", "Manager");
         employeeService.create(jake);
         
+        Employee tok = new Employee("Jake", "IT", "Kacung");
+        employeeService.create(tok);
+        
         Employee tim = new Employee("Tim", "Security", "Chief");
         employeeService.create(tim);
         
