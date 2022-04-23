@@ -10,7 +10,7 @@
         <maven.compiler.source>14</maven.compiler.source>
         <maven.compiler.target>14</maven.compiler.target>
         
-        <spring.version>4.3.5.RELEASE</spring.version>
+        <spring.version>5.3.19</spring.version>
     </properties>
     
     <build>
